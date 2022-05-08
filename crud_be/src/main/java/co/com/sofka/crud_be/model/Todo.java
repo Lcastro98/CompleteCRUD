@@ -1,9 +1,14 @@
-package co.com.sofka.crud_be.domain;
+package co.com.sofka.crud_be.model;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@Getter
+@Setter
 @Entity
 public class Todo {
     @Id
@@ -11,28 +16,4 @@ public class Todo {
     private Long id;
     private String name;
     private boolean isCompleted;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public boolean isCompleted() {
-        return isCompleted;
-    }
-
-    public void setCompleted(boolean completed) {
-        isCompleted = completed;
-    }
 }
