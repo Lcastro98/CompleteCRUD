@@ -62,18 +62,23 @@ const Form = () => {
     });
   }
 
-  return <form ref={formRef}>
+  return <div className="container">
+  <form ref={formRef}>
+    <div className="input-group mb-3">
     <input 
+      className="form-control"
       type="text" 
-      name="name" 
+      name="name"
+      placeholder="Ingrese su tarea por hacer..." 
       defaultValue={item.name}
       onChange={(event) => {
       setState({ ...state, name: event.target.value })
     }} ></input>
-    {item.id && <button onClick={onEdit}>Actualizar</button>} 
-    {!item.id && <button onClick={onAdd}>Agregar</button>}
-    
+    {item.id && <button className="btn btn-dark" onClick={onEdit}>Actualizar</button>} 
+    {!item.id && <button className="btn btn-dark" onClick={onAdd}>Agregar</button>}
+    </div>
   </form>
+  </div>
 }
 
 const List = () => {
@@ -100,13 +105,15 @@ const List = () => {
     dispatch({ type: "edit-item", item: todo })
   }
 
-  return <div>
-    <table>
+  return <div className="container">
+    <table className="table table-dark table-striped">
       <thead>
         <tr>
           <td>ID</td>
           <td>Nombre</td>
           <td>¿Esta completado?</td>
+          <td>Editar</td>
+          <td>Eliminar</td>
         </tr>
       </thead>
       <tbody>
@@ -115,8 +122,8 @@ const List = () => {
             <td>{todo.id}</td>
             <td>{todo.name}</td>
             <td>{todo.isCompleted === true ? "SI" : "NO"}</td>
-            <td><button onClick={() => onDelete(todo.id)}>Eliminar</button></td>
-            <td><button onClick={() => onEdit(todo)}>Editar</button></td>
+            <td><button className="btn btn-warning btn-sm ml-3" onClick={() => onEdit(todo)}>Editar</button></td>
+            <td><button className="btn btn-danger btn-sm ml-3" onClick={() => onDelete(todo.id)}>Eliminar</button></td>
           </tr>
         })}
       </tbody>
@@ -163,6 +170,8 @@ const StoreProvider = ({ children }) => {
 
 function App() {
   return <StoreProvider>
+    <br/>
+    <h1 className="container">TODOs</h1>
     <Form />
     <List />
   </StoreProvider>
