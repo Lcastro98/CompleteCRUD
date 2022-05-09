@@ -55,7 +55,7 @@ Esto abrirá el siguiente puerto [http://localhost:3000](http://localhost:3000) 
 
 ## Voilà
 
-![alt_text](https://github.com/Lcastro98/CompleteCRUD/blob/main/crud_fe/public/Todo.JPG)
+![alt_text](https://github.com/Lcastro98/CompleteCRUD/blob/main/crud_fe/public/Todo.png)
 
 ## Video 📹
 
